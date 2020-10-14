@@ -15,7 +15,16 @@ class ShoppingCart
       :name => @name,
       :capacity => @capacity
     }
+  end
 
+  def total_number_of_products
+    @products.reduce(0) do |sum, product|
+      sum + product.quantity
+    end
+  end
+
+  def is_full?
+    @capacity > total_number_of_products ? false : true
   end
 
 end
