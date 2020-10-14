@@ -27,4 +27,10 @@ class ShoppingCart
     @capacity > total_number_of_products ? false : true
   end
 
+  def products_by_category(category)
+    @products.select do | product|
+      product.category == category
+    end
+  end
+
 end
