@@ -1,6 +1,6 @@
 class ShoppingCart
   attr_reader :name, :capacity, :products
-  
+
   def initialize(name, capacity)
     @name,  = name,
     @capacity = capacity.strip.tr('^0-9', '').to_i
@@ -32,6 +32,10 @@ class ShoppingCart
     @products.select do | product|
       product.category == category
     end
+  end
+
+  def percentage_occupied
+    ((total_number_of_products.to_f / @capacity) * 100).round(2)
   end
 
 end
